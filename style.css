@@ -1,0 +1,193 @@
+/* --- Variables Globales --- */
+:root {
+  --bg-color: #F8FAFC;         /* Gris claro neutro (descansa la vista) */
+  --card-bg: #FFFFFF;          /* Blanco limpio para el contenedor */
+  --text-primary: #1E293B;     /* Azul/Gris oscuro con excelente contraste */
+  --text-secondary: #64748B;   /* Gris medio para textos secundarios */
+  
+  --primary-color: #2563EB;    /* Azul institucional claro */
+  --primary-hover: #1D4ED8;    /* Azul profundo para interacciones */
+  
+  --border-color: #E2E8F0;     /* Bordes sutiles */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  
+  --radius-lg: 20px;
+  --radius-md: 12px;
+}
+
+/* --- Reset General --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Tarjeta Contenedora Principal --- */
+.card-container {
+  background-color: var(--card-bg);
+  width: 100%;
+  max-width: 480px; /* Ancho cómodo en móviles */
+  padding: clamp(24px, 5vw, 40px); /* Padding fluido según pantalla */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: max-width 0.3s ease;
+}
+
+/* --- Perfil / Encabezado --- */
+.profile-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-wrapper {
+  width: clamp(85px, 14vw, 110px);   /* Aumentamos levemente el tamaño para mejor visualización */
+  height: clamp(85px, 14vw, 110px);  
+  border-radius: 50%;
+  background-color: #FFFFFF;         /* Fondo blanco para rellenar espacios si el PNG es transparente */
+  padding: 8px;                      /* Margen interno para que el logo respire y no toque los bordes */
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;               /* Escala la imagen proporcionalmente asegurando que NO se corte */
+}
+
+.school-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.school-subtitle {
+  font-size: clamp(0.875rem, 1.8vw, 0.95rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.school-subtitle b {
+  color: var(--text-primary);
+}
+
+/* --- Lista de Botones/Enlaces --- */
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px; /* Tamaño ideal para tocar con el pulgar en móviles */
+  padding: 12px 20px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2vw, 0.95rem);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.1);
+}
+
+/* Botón Destacado (Inscripción) */
+.nav-button.highlight {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  border-color: var(--primary-color);
+}
+
+.nav-button.highlight:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #FFFFFF;
+}
+
+.button-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.button-text {
+  text-align: center;
+}
+
+.button-icon-svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
+  fill: currentColor; /* Hereda el color del texto o hover del botón */
+  transition: fill 0.2s ease;
+}
+
+/* --- Pie de Página --- */
+.contact-footer {
+  text-align: center;
+  font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  line-height: 1.6;
+}
+
+.contact-footer .location {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ===================================================
+   ADAPTACIÓN PARA PANTALLAS GRANDES (PC / ESCRITORIO)
+   =================================================== */
+@media (min-width: 768px) {
+  .card-container {
+    max-width: 540px; /* Se expande suavemente en PC */
+  }
+
+  .nav-button {
+    justify-content: flex-start; /* Alinea íconos y textos a la izquierda para mejor lectura en PC */
+    padding-left: 24px;
+  }
+
+  .button-text {
+    text-align: left;
+  }
+}
