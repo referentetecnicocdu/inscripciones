@@ -1,0 +1,83 @@
+<!-- orientaciones.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuela Secundaria N° 16 - Colegio de Urdinarrain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+	  /* Marco contenedor flexible */
+	.image-frame {
+	  width: 100%;
+	  border-radius: var(--radius-md);
+	  overflow: hidden;
+	  border: 1px solid var(--border-color);
+	  box-shadow: var(--shadow-sm);
+	  background-color: var(--card-bg);
+	}
+
+	/* Imagen fluida */
+	.academic-img {
+	  width: 100%;       /* Ocupa el 100% del ancho del marco (los 540px) */
+	  height: auto;      /* La altura se ajusta sola proporcionalmente */
+	  display: block;    /* Elimina espacios blancos residuales al pie */
+	}
+  </style>
+</head>
+<body>
+
+  <!-- Tarjeta Contenedora Principal -->
+  <main class="card-container">
+    
+    <!-- Encabezado / Perfil -->
+    <header class="profile-header">
+      <div class="avatar-wrapper">
+        <img src="img/logo_colegio.png" alt="Logo Escuela Secundaria N° 16" class="profile-avatar">
+      </div>
+      <h1 class="school-title">Escuela Secundaria N° 16</h1>
+      <p class="school-subtitle"><b>“Colegio de Urdinarrain”</b></p>
+    </header>
+
+
+	<!-- Botón de retorno a Inicio -->
+    <nav class="back-navigation">
+      <a href="index.html" class="nav-button back-button">
+        <span class="button-icon">⬅️</span>
+        <span class="button-text">Volver al inicio</span>
+      </a>
+    </nav>
+    
+    <!-- Sección Oferta Académica / Galería Interactiva -->
+    <section class="academic-section">
+	  <div class="tabs-content">
+		<!-- Tab 1: Ciclo Básico -->
+		<div id="tab-basico" class="tab-panel active" role="tabpanel">
+		  <div class="image-frame">
+			<img src="img/Ciclo Básico.jpg" alt="Información del Ciclo Básico" class="academic-img">
+		  </div>
+		</div>
+
+		<!-- Tab 2: Ciclo Orientado -->
+		<div id="tab-orientado" class="tab-panel" role="tabpanel">
+		  <div class="image-frame">
+			<img src="img/Ciclo orientado.jpg" alt="Información del Ciclo Orientado" class="academic-img">
+		  </div>
+		</div>
+
+		<!-- Tab 3: ESA -->
+		<div id="tab-esa" class="tab-panel" role="tabpanel">
+		  <div class="image-frame">
+			<img src="img/ESA.jpg" alt="Información de ESA" class="academic-img">
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+    </main>
+
+</body>
+</html>
